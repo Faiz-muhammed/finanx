@@ -1,0 +1,13 @@
+prefix=/Users/achus/Documents/finanx/.conda
+exec_prefix=/Users/achus/Documents/finanx/.conda
+libdir=/Users/achus/Documents/finanx/.conda/lib
+sharedlibdir=/Users/achus/Documents/finanx/.conda/lib
+includedir=/Users/achus/Documents/finanx/.conda/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

@@ -1,17 +1,25 @@
 from fastapi import FastAPI
-from app.api.routes import ai, users, health
+from app.api.routes import users, health, chat
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="AI System", version="1.0")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allows all headers
+)
 
 # Register API routes
 app.include_router(health.router,prefix="/health",tags=["Health"])
 app.include_router(users.router,prefix="/users",tags=["Users"])
-app.include_router(ai.router,prefix="/ai",tags=["AI"])
+app.include_router(chat.router,prefix="/assist",tags=["CHAT"])
 
 @app.get("/")
 async def root():
-    return {"message":"AI system is Running"}
-
+    return {"message":"AI system is Runffning"}
 
 
 # from fastapi import FastAPI, BackgroundTasks
